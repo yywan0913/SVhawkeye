@@ -44,11 +44,11 @@ R package: getopt
 
 - DEL:deletion
 
-SV Judgment：
+** SV Judgment：**
 
-<img src="doc/DEL1.png"  div align=center />
+<img src="doc/DEL1.png"  div align=right />
 
-show:
+** show: **
 <img src="doc/DEL2.png" div align=center />
 
 
