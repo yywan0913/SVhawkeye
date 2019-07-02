@@ -48,20 +48,44 @@ R package: getopt
 ![DEL2](doc/DEL2.png)
 
 - INS：insertion
-
-[![DEL1](doc/INS1.png)] [![DEL2](doc/INS2.png)]
+SV Judgment：
+<center>
+![DEL1](doc/INS1.png)
+</center>
+show:
+<center>
+![DEL2](doc/INS2.png)
+</center>
 
 - DUP:duplication
-
-[![DEL1](doc/DUP1.png)] [![DEL2](doc/DUP2.png)]
-
+SV Judgment:
+<center>
+![DEL1](doc/DUP1.png)
+</center>
+show:
+<center>
+![DEL2](doc/DUP2.png)
+</center>
+  
 - INV:inversion
-
-[![DEL1](doc/INV1.png)] [![DEL2](doc/INV2.png)]
+SV Judgment:
+<center>
+![DEL1](doc/INV1.png)
+</center>
+show:
+<center>
+![DEL2](doc/INV2.png)
+</center>
 
 - TRA: translocation
-
-[![DEL1](doc/TRA1.png)] [![DEL2](doc/TRA2.png)]
+SV Judgment:
+<center>
+![DEL1](doc/TRA1.png)
+</center>
+show:
+<center>
+![DEL2](doc/TRA2.png)
+</center>
 
 Split mapping were filled with color.
 
