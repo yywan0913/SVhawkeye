@@ -198,7 +198,7 @@ SVhaweye.py -i sample.bam -b test.vcf --format vcf -o test -g hg38 -q 20 -fo pdf
 
 └── script
 
-│---└── ARigvfrompysam.sh
+│---└── Rigvfrompysam.sh
 
 - AL.bam_3_144989284_144991284 :
 
@@ -227,6 +227,7 @@ SVhaweye.py -i sample.bam -b test.vcf --format vcf -o test -g hg38 -q 20 -fo pdf
 # Contact
 -------
 If you have any questions, please contact the following folks:
+
 Yuhui Xiao <xiaoyuhui@grandomics.com>
 
 **[back to top](#contents)**
