@@ -21,6 +21,7 @@ SVhawkeye is a tool for verifying structural variation support and drawing quick
 
 # Installation
 **[back to top](#contents)**
+
 ```sh
 git clone git@github.com:yywan0913/SVhawkeye.git
 cd SVhawkeye
@@ -43,7 +44,9 @@ R package: getopt
 **[back to top](#contents)**
 
 <center>
+  
 **DEL:deletion**
+
 </center>
 
 - SV Judgment:
@@ -55,7 +58,9 @@ R package: getopt
 <img src="doc/DEL2.png" width = 60% height = 60% div align=center />
 
 <center>
+  
 **INS：insertion**
+
 </center>
   
 - SV Judgment:
@@ -67,7 +72,9 @@ R package: getopt
 <img src="doc/INS2.png" width = 60% height = 60% div align=center />
 
 <center>
+  
 **DUP:duplication**
+
 </center>
 
 - SV Judgment:
@@ -79,7 +86,9 @@ R package: getopt
 <img src="doc/DUP2.png"  width = 60% height = 60% div align=center />
 
 <center>
+  
 **INV:inversion**
+
 </center>
   
 - SV Judgment:
@@ -91,7 +100,9 @@ R package: getopt
 <img src="doc/INV2.png"  width = 60% height = 60% div align=center />
 
 <center>
+  
 **TRA:translocation**
+
 </center>
 
 - SV Judgment:
@@ -107,6 +118,7 @@ Split mapping were filled with color.
 
 # Usage
 **[back to top](#contents)**
+
 optional arguments:
 ```
   -h, --help            show this help message and exit
@@ -136,6 +148,8 @@ optional arguments:
                         set out picture format,default:png (default: png)
 ```
 # Example
+**[back to top](#contents)**
+
 if input bed,format:
 |#chromosome|start|end|type|chromosome2|start2|end2|
 |------|------|------|------|------|------|------|
@@ -154,6 +168,8 @@ SVhaweye.py -i sample.bam -b test.vcf --format vcf -o test -g hg38 -q 20 -fo pdf
 ```
 
 # Output
+**[back to top](#contents)**
+
 - tree
 ├── bedpysamout
 │---└── AL.bam_3_144989284_144991284
