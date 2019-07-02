@@ -5,6 +5,10 @@ SVhawkeye is a tool for verifying structural variation support and drawing quick
   - Detailed mapping and base information for each read in the interval
   - Drawing the Structural Graphics of Reads
   - Output genotype
+  
+apply to longreads data, like ONT(Oxford Nanopore Technologies) and PacBio data.
+
+may also can draw isoseq data.
 
 # Authors:
 
