@@ -42,54 +42,63 @@ R package: getopt
 # Structural Variation Description
 **[back to top](#contents)**
 
-- DEL:deletion
+<center>
+**DEL:deletion**
+</center>
 
-**SV Judgment:**
+- SV Judgment:
 
 <img src="doc/DEL1.png"  div align=center />
 
-**show:**
+- show:
 
 <img src="doc/DEL2.png" width = 60% height = 60% div align=center />
 
-
-- INS：insertion
-
-**SV Judgment:**
+<center>
+**INS：insertion**
+</center>
+  
+- SV Judgment:
 
 <img src="doc/INS1.png"  div align=center />
 
-**show:**
+- show:
 
 <img src="doc/INS2.png" width = 60% height = 60% div align=center />
 
-- DUP:duplication
+<center>
+**DUP:duplication**
+</center>
 
-**SV Judgment:**
+- SV Judgment:
 
 <img src="doc/DUP1.png"  div align=center />
 
-**show:**
+- show:
 
 <img src="doc/DUP2.png"  width = 60% height = 60% div align=center />
 
-- INV:inversion
-
-**SV Judgment:**
+<center>
+**INV:inversion**
+</center>
+  
+- SV Judgment:
 
 <img src="doc/INV1.png"  div align=center />
 
-**show:**
+- show:
 
 <img src="doc/INV2.png"  width = 60% height = 60% div align=center />
 
-- TRA: translocation
+<center>
+**TRA:translocation**
+</center>
 
-**SV Judgment:**
+- SV Judgment:
 
 <img src="doc/TRA1.png"  div align=center />
 
-**show:**
+- show:
 
 <img src="doc/TRA2.png"  width = 60% height = 60% div align=center />
 
