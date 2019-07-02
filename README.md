@@ -49,44 +49,52 @@ R package: getopt
 <img src="doc/DEL1.png"  div align=right />
 
 **show:**
+
 <img src="doc/DEL2.png" div align=center />
 
 
 - INS：insertion
+
 **SV Judgment:**
 
 <img src="doc/INS1.png"  div align=right />
 
 **show:**
-<img src="doc/INS2.png"  div align=right />
+
+<img src="doc/INS2.png" width = 80% height = 80% div align=center />
 
 - DUP:duplication
+
 **SV Judgment:**
 
 <img src="doc/DUP1.png"  div align=right />
 
 **show:**
-<img src="doc/DUP2.png"  div align=right />
+
+<img src="doc/DUP2.png"  div align=center />
 
 - INV:inversion
+
 **SV Judgment:**
 
 <img src="doc/INV1.png"  div align=right />
 
 **show:**
 
-<img src="doc/INV1.png"  div align=right />
+<img src="doc/INV2.png"  div align=center />
 
 - TRA: translocation
+
 **SV Judgment:**
 
 <img src="doc/TRA1.png"  div align=right />
 
 **show:**
 
-<img src="doc/TRA2.png"  div align=right />
+<img src="doc/TRA2.png"  div align=center />
 
 Split mapping were filled with color.
+
 
 # Usage
 **[back to top](#contents)**
