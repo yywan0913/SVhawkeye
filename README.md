@@ -46,10 +46,11 @@ R package: getopt
 
 SV Judgment：
 
-<img src="doc/DEL1.png" width = "500" height = "300" div align=left />
-<img src="doc/DEL2.png" width = "500" height = "300" div align=right />
+<img src="doc/DEL1.png"  div align=center />
 
 show:
+<img src="doc/DEL2.png" div align=center />
+
 
 <center>
 
