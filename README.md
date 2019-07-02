@@ -46,52 +46,52 @@ R package: getopt
 
 **SV Judgment:**
 
-<img src="doc/DEL1.png"  div align=right />
+<img src="doc/DEL1.png"  div align=center />
 
 **show:**
 
-<img src="doc/DEL2.png" div align=center />
+<img src="doc/DEL2.png" width = 60% height = 60% div align=center />
 
 
 - INS：insertion
 
 **SV Judgment:**
 
-<img src="doc/INS1.png"  div align=right />
+<img src="doc/INS1.png"  div align=center />
 
 **show:**
 
-<img src="doc/INS2.png" width = 80% height = 80% div align=center />
+<img src="doc/INS2.png" width = 60% height = 60% div align=center />
 
 - DUP:duplication
 
 **SV Judgment:**
 
-<img src="doc/DUP1.png"  div align=right />
+<img src="doc/DUP1.png"  div align=center />
 
 **show:**
 
-<img src="doc/DUP2.png"  div align=center />
+<img src="doc/DUP2.png"  width = 60% height = 60% div align=center />
 
 - INV:inversion
 
 **SV Judgment:**
 
-<img src="doc/INV1.png"  div align=right />
+<img src="doc/INV1.png"  div align=center />
 
 **show:**
 
-<img src="doc/INV2.png"  div align=center />
+<img src="doc/INV2.png"  width = 60% height = 60% div align=center />
 
 - TRA: translocation
 
 **SV Judgment:**
 
-<img src="doc/TRA1.png"  div align=right />
+<img src="doc/TRA1.png"  div align=center />
 
 **show:**
 
-<img src="doc/TRA2.png"  div align=center />
+<img src="doc/TRA2.png"  width = 60% height = 60% div align=center />
 
 Split mapping were filled with color.
 
