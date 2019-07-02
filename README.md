@@ -159,14 +159,18 @@ optional arguments:
 **[back to top](#contents)**
 
 if input bed,format:
+
 |#chromosome|start|end|type|chromosome2|start2|end2|
 |------|------|------|------|------|------|------|
 |1|1288171|1290193|
 |9|278819|279211|TRA|14|1427822|1429136|
+
 ```
 SVhaweye.py -i father.bam,mather.bam,children.bam -g hg19 -b igv.bed -o test
 ```
+
 if input vcf,format:
+
 |#CHROM|POS|ID|REF|ALT|QUAL|FILTER|INFO|FORMAT|sample|
 |------|------|------|------|------|------|------|------|------|------|
 |5|17101355|sv549|N|<DEL>|.|pass|SVLEN=107;SVTYPE=DEL;END=17101462|GT|0/1|
@@ -179,6 +183,7 @@ SVhaweye.py -i sample.bam -b test.vcf --format vcf -o test -g hg38 -q 20 -fo pdf
 **[back to top](#contents)**
 
 - tree
+
 ├── bedpysamout
 │---└── AL.bam_3_144989284_144991284
 ├── figure
@@ -202,6 +207,7 @@ SVhaweye.py -i sample.bam -b test.vcf --format vcf -o test -g hg38 -q 20 -fo pdf
 |144977740|144990283|33|12331|16963|46|+|0|normal|2675e050-1c6a-424a-852d-72f28896eca1|A|T|C|
 
 - new.test.vcf:
+
 ```
 ##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
 ##FORMAT=<ID=DA,Number=1,Type=Integer,Description="# number of high-quality reads(depth)">
