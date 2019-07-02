@@ -29,10 +29,14 @@ chmod -R 755 SVhaweye.py
 ./SVhaweye.py --help
 ```
 Depends：
-python2
-python package: pysam
-R（any version）
-R package: getopt
+
+- python2
+
+- python package: pysam
+
+- R（any version）
+
+- R package: getopt
 
 # Data Preparation 
 **[back to top](#contents)**
