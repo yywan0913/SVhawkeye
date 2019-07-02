@@ -44,9 +44,18 @@ R package: getopt
 
 - DEL:deletion
 
-![DEL1](doc/DEL1.png)
-![DEL2](doc/DEL2.png)
+SV Judgment：
 
+<center>
+![DEL1](doc/DEL1.png)
+</center>
+
+show:
+
+<center>
+![DEL2](doc/DEL2.png)
+</center>
+ 
 - INS：insertion
 SV Judgment：
 <center>
