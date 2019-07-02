@@ -44,59 +44,47 @@ R package: getopt
 
 - DEL:deletion
 
-** SV Judgment：**
+**SV Judgment:**
 
 <img src="doc/DEL1.png"  div align=right />
 
-** show: **
+**show:**
 <img src="doc/DEL2.png" div align=center />
 
 
-<center>
-
-![DEL2](doc/DEL2.png)
-
-</center>
- 
 - INS：insertion
-SV Judgment：
-<center>
-![DEL1](doc/INS1.png)
-</center>
-show:
-<center>
-![DEL2](doc/INS2.png)
-</center>
+**SV Judgment:**
+
+<img src="doc/INS1.png"  div align=right />
+
+**show:**
+<img src="doc/INS2.png"  div align=right />
 
 - DUP:duplication
-SV Judgment:
-<center>
-![DEL1](doc/DUP1.png)
-</center>
-show:
-<center>
-![DEL2](doc/DUP2.png)
-</center>
-  
+**SV Judgment:**
+
+<img src="doc/DUP1.png"  div align=right />
+
+**show:**
+<img src="doc/DUP2.png"  div align=right />
+
 - INV:inversion
-SV Judgment:
-<center>
-![DEL1](doc/INV1.png)
-</center>
-show:
-<center>
-![DEL2](doc/INV2.png)
-</center>
+**SV Judgment:**
+
+<img src="doc/INV1.png"  div align=right />
+
+**show:**
+
+<img src="doc/INV1.png"  div align=right />
 
 - TRA: translocation
-SV Judgment:
-<center>
-![DEL1](doc/TRA1.png)
-</center>
-show:
-<center>
-![DEL2](doc/TRA2.png)
-</center>
+**SV Judgment:**
+
+<img src="doc/TRA1.png"  div align=right />
+
+**show:**
+
+<img src="doc/TRA2.png"  div align=right />
 
 Split mapping were filled with color.
 
