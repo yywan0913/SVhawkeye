@@ -185,12 +185,19 @@ SVhaweye.py -i sample.bam -b test.vcf --format vcf -o test -g hg38 -q 20 -fo pdf
 - tree
 
 ├── bedpysamout
+
 │---└── AL.bam_3_144989284_144991284
+
 ├── figure
+
 │---└── 3_144989284_144991284.png
+
 ├── input.bed
+
 ├── new.test.vcf
+
 └── script
+
 │---└── ARigvfrompysam.sh
 
 - AL.bam_3_144989284_144991284 :
