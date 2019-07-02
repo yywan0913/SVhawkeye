@@ -56,6 +56,8 @@ R package: getopt
 - show:
 
 <img src="doc/DEL2.png" width = 60% height = 60% div align=center />
+  
+-------  
 
 <center>
   
@@ -71,6 +73,8 @@ R package: getopt
 
 <img src="doc/INS2.png" width = 60% height = 60% div align=center />
 
+-------
+
 <center>
   
 **DUP:duplication**
@@ -85,6 +89,8 @@ R package: getopt
 
 <img src="doc/DUP2.png"  width = 60% height = 60% div align=center />
 
+-------
+
 <center>
   
 **INV:inversion**
@@ -98,6 +104,8 @@ R package: getopt
 - show:
 
 <img src="doc/INV2.png"  width = 60% height = 60% div align=center />
+
+-------
 
 <center>
   
