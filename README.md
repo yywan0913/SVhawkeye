@@ -41,11 +41,26 @@ R package: getopt
 
 # Structural Variation Description
 **[back to top](#contents)**
+DEL:deletion
+
 [![DEL1](doc/DEL1.png)] [![DEL2](doc/DEL2.png)]
+
+INS：insertion
+
 [![DEL1](doc/INS1.png)] [![DEL2](doc/INS2.png)]
+
+DUP:duplication
+
 [![DEL1](doc/DUP1.png)] [![DEL2](doc/DUP2.png)]
+
+INV:inversion
+
 [![DEL1](doc/INV1.png)] [![DEL2](doc/INV2.png)]
+
+TRA: translocation
+
 [![DEL1](doc/TRA1.png)] [![DEL2](doc/TRA2.png)]
+
 Split mapping were filled with color.
 
 # Usage
