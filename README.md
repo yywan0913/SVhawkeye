@@ -47,13 +47,17 @@ R package: getopt
 SV Judgment：
 
 <center>
+ 
 ![DEL1](doc/DEL1.png)
+
 </center>
 
 show:
 
 <center>
+
 ![DEL2](doc/DEL2.png)
+
 </center>
  
 - INS：insertion
