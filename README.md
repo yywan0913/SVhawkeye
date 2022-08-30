@@ -236,6 +236,6 @@ SVhaweye.py -i sample.bam -b test.vcf --format vcf -o test -g hg38 -q 20 -fo pdf
 -------
 If you have any questions, please contact the following folks:
 
-Yuhui Xiao <xiaoyuhui@grandomics.com>
+Yuhui Xiao <651874494@qq.com>
 
 **[back to top](#contents)**
