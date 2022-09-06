@@ -34,13 +34,13 @@ chmod -R 755 SVhaweye.py
 ```
 Depends：
 
-- python2
+- python2 or python3
 
 - python package: pysam
 
 - R（any version）
 
-- R package: getopt
+- R package: getopt, data.table,RColorBrewer
 
 # Data Preparation 
 **[back to top](#contents)**
