@@ -1,14 +1,25 @@
 # SVhawkeye
 
-SVhawkeye is a tool for verifying structural variation support and drawing quickly!
+SVhawkeye is a tool for verifying structural variation support and drawing quickly from bam files,
+also, SVhawkeye can draw RNA structure from bam files on isoseq,
+and SVhawkeye can draw SNP and indel structure and draw depth distribution by your range input.
 
   - Detailed mapping and base information for each read in the interval
   - Drawing the Structural Graphics of Reads
   - Output genotype
   
-apply to longreads data, like ONT(Oxford Nanopore Technologies) and PacBio data.
+apply to bam files of longreads data, like ONT(Oxford Nanopore Technologies) or PacBio data.
+Currently, it is not suitable for PE reads from NGS.
 
-may also can draw isoseq data.
+# support:
+
+  - platorm data: ONT(Oxford Nanopore Technologies) or PacBio data, eg.
+  - sequence data:  wgs,wes,isoseq,...
+
+# function:
+
+  - structure display: structural variation, SNP, INDEL, RNA, cnv-depth
+  - sv genotyping
 
 # Authors:
 
@@ -29,8 +40,8 @@ may also can draw isoseq data.
 ```sh
 git clone git@github.com:yywan0913/SVhawkeye.git
 cd SVhawkeye
-chmod -R 755 SVhaweye.py
-./SVhaweye.py --help
+chmod -R 755 haweye.py
+./haweye.py --help
 ```
 Depends：
 
@@ -44,9 +55,9 @@ Depends：
 
 # Data Preparation 
 **[back to top](#contents)**
-- sample.bam(sample.bam.bai),support Multi-sample，comma-separated
-- bed or vcf file
-- ...
+- sample.bam(sample.bam.bai),support Multi-sample，comma-separated,for example: -i A.bam,B.bam,C.bam,...
+- bed or vcf file,for example:-b input.bed or -b input.vcf -f vcf
+- maybe reference fasta , genePred file.  but not must.
 
 # Structural Variation Description
 **[back to top](#contents)**
@@ -137,31 +148,46 @@ Split mapping were filled with color.
 
 optional arguments:
 ```
+./hawkeye.py -h
+commands:
+    sv_browse             fast draw Structural variation or snp-inDel as IGV.
+    snpindel_browse       fast draw snp or indel variation as IGV
+    sv_genotyping         recall sv of existing input vcf file.
+    rna_browse            display isoform structure from iso-seq
+    regiondepth_browse    display depth distribution of your region
+```
+
+```
+ ./hawkeye.py  sv_browse
+  Options:
   -h, --help            show this help message and exit
-  -i FILE, --bams FILE  set the input bam file. mark="," (default: None)
-  -g hg19/hg38, --genome hg19/hg38
-                        set reference,support:hg19/hg38 (default: hg19)
-  -b FILE, --bedvcf FILE
-                        set the input bed or vcf file. (default: None)
-  -o Dir, --outdir Dir  set output dirname. (default: None)
-  -t <type 'int'>, --thread <type 'int'>
-                        Number of additional threads to use [0] (default: 0)
-  -q num, --quanlty num
-                        set reads mapping quanlty for filter,default:Q20
-                        (default: 20)
-  -d <type 'int'>, --extend <type 'int'>
-                        set region extend length,if format==vcf,default:1000bp
-                        (default: 1000)
-  -f vcf/bed, --infmt vcf/bed
-                        set input format:vcf or bed;default:bed (default: bed)
-  -p True/False, --runpysam True/False
-                        does run pysam for reads out? (default: True)
-  -D True/False, --Drawpicture True/False
-                        does draw IGV picture (default: True)
-  -c True/False, --createvcf True/False
-                        does create new vcf? recall sv (default: True)
-  -fo png/pdf, --outfmt png/pdf
-                        set out picture format,default:png (default: png)
+  -i FILE, --bams=FILE  set the input bam file. mark=","; [required:True]
+  -g GENOME, --genome=GENOME
+                        set reference,support:hg19/hg38;while,other genome
+                        also can draw but no annotation; [default:hg19]
+  -b FILE, --bedvcf=FILE
+                        set the input bed or vcf file; [required=True]
+  -r FILE, --reffa=FILE
+                        set the reference fasta file of inputbam, when
+                        region<210bp and which can dispaly ref base;
+                        [default:None]
+  -o Dir, --outdir=Dir  set output dirname; [default: ./]
+  -t <class 'int'>, --thread=<class 'int'>
+                        Number of additional threads to use ; [default:0]
+  -q num, --quanlty=num
+                        set reads mapping quanlty for filter; [default: 20
+                        (means Q20)]
+  -I <class 'float'>, --identity=<class 'float'>
+                        set min identity of mapping reads for filter;
+                        [default: 0.6]
+  -d <class 'int'>, --extend=<class 'int'>
+                        set region extend length; [default:1000bp]
+  -f vcf/bed, --infmt=vcf/bed
+                        set input format:vcf or bed; [default:bed]
+  -F png/pdf, --outfmt=png/pdf
+                        set out picture format; [default:png]
+  -l <class 'int'>, --sv_min_length=<class 'int'>
+                        Minimum length of SV to be reported; [default:50]
 ```
 # Example
 **[back to top](#contents)**
@@ -174,7 +200,7 @@ if input bed,format:
 |9|278819|279211|TRA|14|1427822|1429136|
 
 ```
-SVhaweye.py -i father.bam,mather.bam,children.bam -g hg19 -b igv.bed -o test
+haweye.py sv_browse -i father.bam,mather.bam,children.bam -g hg19 -b igv.bed -o testdir -t 3
 ```
 
 if input vcf,format:
@@ -194,11 +220,11 @@ SVhaweye.py -i sample.bam -b test.vcf --format vcf -o test -g hg38 -q 20 -fo pdf
 
 ├── bedpysamout
 
-│---└── AL.bam_3_144989284_144991284
+│---└── HG002_GRCh38.haplotag.10x.bam_chr14_105772449_105860085
 
 ├── figure
 
-│---└── 3_144989284_144991284.png
+│---└── chr14_105773449_105859085.e1000.png
 
 ├── input.bed
 
@@ -208,18 +234,14 @@ SVhaweye.py -i sample.bam -b test.vcf --format vcf -o test -g hg38 -q 20 -fo pdf
 
 │---└── Rigvfrompysam.sh
 
-- AL.bam_3_144989284_144991284 :
+- HG002_GRCh38.haplotag.10x.bam_chr14_105772449_105860085 :
 
-|RefStart|RefEnd|QueryStart|QueryEnd|ReadsLen|mapq|Strand|Color|Type|Reads|144989284|144989285|144989286|
-|------|------|------|------|------|------|------|------|------|------|------|------|------|
-|144990284|144992823|13214|15629|15660|60|-|1|INS--8614@@DEL_1787:120|1b90c763-669b-4eb7-a1c2-2cc9620f8c63|+|+|+|
-|144985709|144990286|16|4599|15660|26|-|1|INS--8614|1b90c763-669b-4eb7-a1c2-2cc9620f8c63|A|T|C|
-|144982187|144990271|16|7862|21878|43|-|2|INS--8625|22461e5b-f890-4c72-953a-d4548c985c6d|G|T|C|
-|144990285|144995709|16488|21843|21878|57|-|2|INS--8625@@DEL_1787:72|22461e5b-f890-4c72-953a-d4548c985c6d|+|+|+|
-|144971591|144998068|22|25544|25573|44|-|-1|DEL_1843:106|22bbd620-d020-4c4f-a3eb-d5d958b85bbc|A|T|C|
-|144961923|144990286|29|28211|41972|49|+|3|INS--8577|25bd8913-f684-46aa-a4eb-f5c0209b3add|A|T|C|
-|144990286|144995501|36789|41943|41972|51|+|3|INS--8577@@DEL_1786:81|25bd8913-f684-46aa-a4eb-f5c0209b3add|+|+|+|
-|144977740|144990283|33|12331|16963|46|+|0|normal|2675e050-1c6a-424a-852d-72f28896eca1|A|T|C|
+|Chr|RefStart|RefEnd|QueryStart|QueryEnd|ReadsLen|Mapq|Identity|Strand|Color|Type|Readsorder|ReadsID|
+|chr14|105761683|105773457|0|11754|11755|60|NA|+|0|normal|13|m64014_181210_152538/159122871/ccs|
+|chr14|105761697|105772813|1|11103|11102|60|NA|-|0|normal|1|m64018_190129_193747/10749818/ccs|
+|chr14|105765546|105773455|1407|9307|9306|60|NA|-|1|DEL--chr14_105773455-105859091:85637|10.01|m64020_190123_225958/110167169/ccs|
+|chr14|105859091|105860456|1|1407|9306|60|NA|-|1|ins--chr14_105859685-105859686:51@@DEL--chr14_105773455-105859091:85637|10|m64020_190123_225958/110167169/ccs|
+|chr14|105766543|105773455|0|6913|10691|60|NA|+|2|DEL--chr14_105773455-105859091:85637|11|m64014_181210_152538/174458956/ccs|
 
 - new.test.vcf:
 
@@ -228,8 +250,8 @@ SVhaweye.py -i sample.bam -b test.vcf --format vcf -o test -g hg38 -q 20 -fo pdf
 ##FORMAT=<ID=DA,Number=1,Type=Integer,Description="# number of high-quality reads(depth)">
 ##FORMAT=<ID=DV,Number=1,Type=Integer,Description="# number of high-quality variant reads">
 ##FORMAT=<ID=DO,Number=1,Type=Integer,Description="# number of high-quality other variant reads">
-#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	AL-2-071
-3	144990284	350963	N	<INS>	.	PASS	CHR2=3;END=144998771;SVTYPE=INS;RNAMES=1b90c763-669b-4eb7-a1c2-2cc9620f8c63,22461e5b-f890-4c72-953a-d4548c985c6d,25bd8913-f684-46aa-a4eb-f5c0209b3add,2fe5aaa3-8ed8-44a2-bc59-fc6d15ff9d61,42abc36e-8430-461d-b71e-a80858b9340a,7d95d851-2fe8-4187-baf6-4b71889a0ca9,7f9ecc76-8faf-4a57-a5bc-29b25dd17b12,85182445-ecd0-41fe-8ffd-346245d56568,9bd3aa48-9638-4a1d-8ae3-b6a71f4961b6;SVLEN=8487;RE=7;AF=0.28	GT:DV:DA:DO	0/1:7:25:0
+|#CHROM|POS|ID|REF|ALT|QUAL|FILTER|INFO|FORMAT|HG002_GRCh38.haplotag.10x|
+|chr14|105773449|pbsv.DEL.38747|refseq|T|.|PASS|SVTYPE=DEL;END=105859085;SVLEN=-85636|GT:DV:DA:DO|0/1:10:35:0|
 ```
 
 # Contact
@@ -239,3 +261,4 @@ If you have any questions, please contact the following folks:
 Yuhui Xiao <651874494@qq.com>
 
 **[back to top](#contents)**
+
