@@ -21,7 +21,7 @@ class SNPToView(object):
         parser.add_option('-t', '--thread', action="store",dest="thread",metavar=int, default=0, help='Number of additional threads to use ; [default:0]')
         parser.add_option('-q', '--quanlty', action="store", dest="quanlty",metavar='num',default=20, help='set reads mapping quanlty for filter; [default: 20 (means Q20)]')
         parser.add_option('-I', '--identity', action="store", dest="identity",metavar=float,default=0.6, help='set min identity of mapping reads for filter; [default: 0.6]')
-        parser.add_option('-d', '--extend', action="store",dest="extend",metavar=int, default=50, help='set region extend length; [default:1000bp]')
+        parser.add_option('-d', '--extend', action="store",dest="extend",metavar=int, default=50, help='set region extend length; [default:50bp]')
         parser.add_option('-f', '--infmt', action="store", dest="infmt",metavar='vcf/bed',default='bed', help='set input format:vcf or bed; [default:bed]')
         parser.add_option('-F', '--outfmt', action="store", dest="outfmt",metavar='png/pdf',default='png', help='set out picture format; [default:png]')
         (options, args) = parser.parse_args()
@@ -40,7 +40,7 @@ class SNPToView(object):
         self.infmt = options.infmt
         self.outfmt = options.outfmt
         self.script = self.outdir+'/script'
-        self.extend = options.extend
+        self.extend = int(options.extend)
         MakeDir(self.outdir)
         MakeDir(self.script)
         self.inbed = self.outdir+'/input.bed'

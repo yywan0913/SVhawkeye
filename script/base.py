@@ -9,6 +9,8 @@ def intersectregion(start1,end1,start2,end2):
     else:
         return True
 
+def intersectregionlen(start1,end1,start2,end2):
+    return min(end1,end2)-max(start1,start2)
 
 def MakeDir(Dir):
     if not os.path.exists(Dir):

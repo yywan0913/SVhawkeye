@@ -32,7 +32,7 @@ class SVToView(object):
             parser.print_help();
             sys.exit(0)
         self.infmt = options.infmt
-        if genotyping and self.infmt != "vcf":
+        if genotyping and (self.infmt != "vcf" and options.bedvcf[-4:]!=".vcf"):
             print("Warning:\n    sv_genotyping: sv recall must input vcf file!\n")
             parser.print_help();
             sys.exit(0)
@@ -48,7 +48,7 @@ class SVToView(object):
         self.infmt = options.infmt
         self.outfmt = options.outfmt
         self.script = self.outdir+'/script'
-        self.extend = options.extend
+        self.extend = int(options.extend)
         MakeDir(self.outdir)
         MakeDir(self.script)
         self.inbed = self.outdir+'/input.bed'
@@ -115,10 +115,10 @@ class SVToView(object):
             main2 = '%s:%s-%s' %(chrom2,str(start2),str(end2))
             inputpysamout2 = ','.join([k+'_2' for k in bedoutfile])
             splitrfile = ','.join([k+'_ss' for k in bedoutfile])
-            work = ("%s/SVhawkeye.r --input %s --main %s --samples %s --outpng %s --genome %s --main2 %s --input2 %s --splitreads %s"
+            work = ("Rscript %s/SVhawkeye.r --input %s --main %s --samples %s --outpng %s --genome %s --main2 %s --input2 %s --splitreads %s"
                     %(self.mainscript, inputpysamout, main1, samples, outpng,self.genome, main2, inputpysamout2, splitrfile) )
         else:
-            work = ("%s/SVhawkeye.r --input %s --main %s --samples %s --outpng %s --genome %s"
+            work = ("Rscript %s/SVhawkeye.r --input %s --main %s --samples %s --outpng %s --genome %s"
                     %(self.mainscript, inputpysamout, main1, samples, outpng, self.genome) )
         return work # for draw  -->runpysamout
 

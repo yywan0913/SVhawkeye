@@ -1,7 +1,6 @@
 #!/usr/bin/env Rscript
 library('getopt')
 library('data.table')
-
 spec = matrix(c(
         'help' ,   'h', 0, "logical",
         'input',   'i', 1, "character",
@@ -61,7 +60,6 @@ if(is.null(opt$genepred)) {
 if(is.null(opt$main2)|is.null(opt$input2)) TRA = FALSE else TRA = TRUE
 
 options(stringsAsFactors=F)
-
 ## deal parameter
 input = strsplit(input,",")[[1]]
 n = length(input)
@@ -77,10 +75,8 @@ if(TRA){
 	splitreadsfile = strsplit(opt$splitreads,",")[[1]]
 	for(i in 1:n) splitreads[[i]] = scan(splitreadsfile[i],what="")
 }
-
 ## annot data: cytoband,ref,rmsk,segdup
 Annot = getannot(scriptdir,genome,chrom,start,end,genepred)
-
 ##  draw
 height = 24+n*6
 xlim = c(Region[1]-1,Region[2]+1)
@@ -160,10 +156,8 @@ if(TRA){
         	if(nrow(data)>0){
                 	drawigv(data,sample="", TRA = TRA,splitreads=splitreads[[i]],left=FALSE,nsamples=n,start=start,end=end)
         	}else{
-			print('???')
                 	plot(1:10,xlim=xlim,type="n",ylab=sample,xlab="",xaxs="i",yaxs="i",axes=F)
                 	text(sum(xlim)/2,5,"No Mapping Reads!",cex=2,xpd=T)
-			print(par('usr'))
         	}
 	}
 	## 3.bottom

@@ -96,7 +96,7 @@ class sv_vcf_record(object):
             self.svlen = abs(float(self.info_dict["SVLEN"]))
         except KeyError:
             # INS, TRA do not have SVLEN attribute
-            self.svlen = 0
+            self.svlen = 0 if self.chrom1!=self.chrom2 else int(self.pos2)-int(self.pos1)
 
         # RE(number of read evidence)
         if "RE" in self.info_dict: # sniffles and picky

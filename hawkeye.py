@@ -49,7 +49,10 @@ if __name__ == '__main__':
         pipe3.GetOpt(genotyping=1);
         pipe3.runsvgenotyping();
     if sys.argv[1] == 'regiondepth_browse':
-        pipe4 = '...'
+        from script.depthanalysispipe import *
+        pipe4 = regionToView()
+        pipe4.GetOpt();
+        pipe4.run()
     if sys.argv[1] == 'rna_browse':
         from script.isoformanalysispipe import *
         pipe5 = RNAToView();

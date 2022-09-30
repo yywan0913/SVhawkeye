@@ -445,29 +445,27 @@ getannot = function(scriptdir,genome,chrom,start,end,genepred){
 		return(annot)
 	}
 	Segdup = fread(cmd=segdup,header=F,sep="\t")
-	Segdup = as.data.frame(Segdup)
-	Segdup[,1] = gsub('chr','',Segdup[,1])
-	Segdup = Segdup[Segdup[,1]==chrom,]
-	Segdup = Segdup[GetregionIntersect(Segdup[,2],Segdup[,3],start,end),,drop=F]
-
+	#Segdup = as.data.frame(Segdup)
+	Segdup$V1 = gsub('chr','',Segdup$V1)
+	Segdup = subset(Segdup,V1==chrom)
+	Segdup = Segdup[GetregionIntersect(Segdup$V2,Segdup$V3,start,end),,drop=F]
 	Rmsk = fread(cmd=rmsk,sep="\t",header=F)
-	Rmsk = as.data.frame(Rmsk)
-	Rmsk[,1] = gsub('chr','',Rmsk[,1])
-	Rmsk = Rmsk[Rmsk[,1]==chrom,]
-	Rmsk = Rmsk[GetregionIntersect(Rmsk[,2],Rmsk[,3],start,end),,drop=F]
-
+	#Rmsk = as.data.frame(Rmsk)
+	Rmsk$V1 = gsub('chr','',Rmsk$V1)
+	Rmsk = subset(Rmsk,V1==chrom)
+	Rmsk = Rmsk[GetregionIntersect(Rmsk[,V2],Rmsk[,V3],start,end),,drop=F]
 	Refgene = fread(cmd=refgene,sep="\t",header=F)
 	# transcript,chr,strand,start,end,utr1,utr2,exonnum,exonstart,exonend,0,genename
-	Refgene = as.data.frame(Refgene)
-	Refgene[,2] = gsub('chr','',Refgene[,2])
-	Refgene = Refgene[Refgene[,2]==chrom,]
-	Refgene = Refgene[GetregionIntersect(Refgene[,4],Refgene[,4],start,end),,drop=F]
+	#Refgene = as.data.frame(Refgene)
+	Refgene$V2 = gsub('chr','',Refgene$V2)
+	Refgene = subset(Refgene,V2==chrom)
+	Refgene = Refgene[GetregionIntersect(Refgene$V4,Refgene$V5,start,end),,drop=F]
 	Refgene = Refgene[order(Refgene$V12,Refgene$V5-Refgene$V4,decreasing=T),,drop=F]
 	Refgene = Refgene[!duplicated(Refgene$V12),,drop=F] # get max transcript region
 
-	annot[['Refgene']] = Refgene
-	annot[['Rmsk']] = Rmsk
-	annot[['Segdup']] = Segdup
+	annot[['Refgene']] = Refgene #as.data.frame(Refgene)
+	annot[['Rmsk']] = Rmsk #as.data.frame(Rmsk)
+	annot[['Segdup']] = Segdup #as.data.frame(Segdup)
 	annot[['cytoband']] = cytoband
 	
 	return (annot)
@@ -483,10 +481,10 @@ overlap = function(start1,end1,start2,end2){
 
 recttext = function(rmskintersect,textcex=0.6,up,down,start,end){
 	par(xpd=F)
-	rect(rmskintersect[,2],down,rmskintersect[,3],up,col="#00BFFF",border="#00BFFF")
+	rect(rmskintersect$V2,down,rmskintersect$V3,up,col="#00BFFF",border="#00BFFF")
         par(xpd=T)
-        textpos = apply(overlap(rmskintersect[,2],rmskintersect[,3],start,end),1,sum)/2
-	Text = sapply(strsplit(as.character(rmskintersect[,4]),"-"),"[",1)
+        textpos = apply(overlap(rmskintersect$V2,rmskintersect$V3,start,end),1,sum)/2
+	Text = sapply(strsplit(as.character(rmskintersect$V4),"-"),"[",1)
 	textcex = textcex
         textwidth = strwidth(Text,cex=textcex)
 	nextn = 0
@@ -527,14 +525,14 @@ drawgene <- function(refgeneintersect,rna=FALSE,TRA=FALSE,y1=8,y2=9,ty1=7.5,ty2=
 	xdiff = 1/15*(par('usr')[2]-par('usr')[1])
 	refgenen = nrow(refgeneintersect)
         if(refgenen>0){
-	    transcriptstart = as.numeric(refgeneintersect[,4])+1
-	    transcriptend = as.numeric(refgeneintersect[,5])
-	    strand = refgeneintersect[,3]
-	    utr1pos = as.numeric(refgeneintersect[,6])
-	    utr2pos = as.numeric(refgeneintersect[,7])+1
-            exonstart = as.numeric(unlist(strsplit(gsub(',$','',refgeneintersect[,9]),",")))+1
-	    exonend = as.numeric(unlist(strsplit(gsub(',$','',refgeneintersect[,10]),",")))
-	    exonnum = as.numeric(refgeneintersect[,8])
+	    transcriptstart = as.numeric(refgeneintersect$V4)+1
+	    transcriptend = as.numeric(refgeneintersect$V5)
+	    strand = refgeneintersect$V3
+	    utr1pos = as.numeric(refgeneintersect$V6)
+	    utr2pos = as.numeric(refgeneintersect$V7)+1
+            exonstart = as.numeric(unlist(strsplit(gsub(',$','',refgeneintersect$V9),",")))+1
+	    exonend = as.numeric(unlist(strsplit(gsub(',$','',refgeneintersect$V10),",")))
+	    exonnum = as.numeric(refgeneintersect$V8)
 	    #if(refgenen<=8){
 	    exoncol = rep(rep(mygenecol[1:refgenen],length=length(exonnum)),exonnum)
 	    genecol = rep(mygenecol[1:refgenen],length=length(exonnum))
@@ -567,7 +565,7 @@ drawgene <- function(refgeneintersect,rna=FALSE,TRA=FALSE,y1=8,y2=9,ty1=7.5,ty2=
 	    }
 	    segments(transcriptstart,(y1+y2)/2,transcriptend,(y1+y2)/2,col=deepgenecol,lwd=2) # draw line
 		### genename text
-	        genejname = refgeneintersect[,12]
+	        genejname = refgeneintersect$V12
 		textpos = apply(overlap(transcriptstart,transcriptend,start,end),1,sum)/2
                 Text = genejname
 
@@ -608,7 +606,7 @@ drawannot = function(xlim,Annot,start,end,TRA=FALSE,RNA=FALSE){
 	## --- rmsk LINE5.5 SINE2.5 Simple_repeat-0.5 Other-3.5 Segdup-6.5 
 	rmskintersect = Annot[['Rmsk']]
 	if(nrow(rmskintersect)>0){
-		RMSK = Text = sapply(strsplit(as.character(rmskintersect[,4]),"-"),"[",2)
+		RMSK = Text = sapply(strsplit(as.character(rmskintersect$V4),"-"),"[",2)
 		if(any(grepl('LINE',RMSK))) {
 			LINE = rmskintersect[RMSK=="LINE",,drop=F]
 			recttext(LINE,textcex=0.8,6,5,start,end)
@@ -638,7 +636,7 @@ drawannot = function(xlim,Annot,start,end,TRA=FALSE,RNA=FALSE){
 	Segdupintersect = Annot[['Segdup']]
 	if(nrow(Segdupintersect)>0){
         	par(xpd=F)
-        	rect(Segdupintersect[,2],-7,Segdupintersect[,3],-6,col="#3CB371",border="#3CB371")
+        	rect(Segdupintersect$V2,-7,Segdupintersect$V3,-6,col="#3CB371",border="#3CB371")
 	}
 	par(xpd=T)
 	if(!TRA)text(par('usr')[1],-6.5,"Segdup",adj=1,cex=1.5,font=2)
