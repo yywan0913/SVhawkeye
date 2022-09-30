@@ -142,6 +142,30 @@ Depends：
 
 Split mapping were filled with color.
 
+-------
+<center>
+
+**RNA structure**
+
+</center>
+  
+- RNA structure form isoseq:
+
+<img src="doc/trio.png"  width = 60% height = 60% div align=center />
+
+-------
+
+<center>
+
+**trio structure**
+
+</center>
+  
+- snp indel ... trio:
+
+<img src="doc/RNA.png"  width = 60% height = 60% div align=center />
+
+
 
 # Usage
 **[back to top](#contents)**
@@ -261,4 +285,3 @@ If you have any questions, please contact the following folks:
 Yuhui Xiao <651874494@qq.com>
 
 **[back to top](#contents)**
-
