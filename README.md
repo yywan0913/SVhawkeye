@@ -165,7 +165,21 @@ Split mapping were filled with color.
 
 <img src="doc/RNA.png"  width = 60% height = 60% div align=center />
 
+-------
 
+<center>
+
+**cnv structure(depth)**
+
+</center>
+
+- depth distribution:
+
+<img src="doc/RNA.png"  width = 60% height = 60% div align=center />
+
+```
+./hawkeye.py regiondepth_browse -i HG002_GRCh38.haplotag.10x.bam -o cnvout/ -r chr2:226468627-226471765 -F png
+```
 
 # Usage
 **[back to top](#contents)**
