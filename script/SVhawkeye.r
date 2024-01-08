@@ -52,7 +52,7 @@ outpng = opt$outpng
 if(is.null(opt$genome)) genome = '' else genome = opt$genome
 if(is.null(opt$genepred)) {
   if(genome=="hg19"|genome=="hg38") genepred = sprintf("%s/%s/%s.genePred.gz",databasedir,genome,genome) else
-     genepred = NA 
+     genepred = "NA" 
 }else {
   genepred = opt$genepred
 }
