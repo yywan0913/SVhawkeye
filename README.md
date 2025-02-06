@@ -247,8 +247,8 @@ if input vcf,format:
 |------|------|------|------|------|------|------|------|------|------|
 |5|17101355|sv549|N|<DEL>|.|pass|SVLEN=107;SVTYPE=DEL;END=17101462|GT|0/1|
 ```
-SVhaweye.py -i tumor.bam,normal.bam -b test.vcf --format vcf -d 1000 -o test -g hg19
-SVhaweye.py -i sample.bam -b test.vcf --format vcf -o test -g hg38 -q 20 -fo pdf
+haweye.py -i tumor.bam,normal.bam -b test.vcf -f vcf -d 1000 -o test -g hg19
+haweye.py -i sample.bam -b test.vcf -f vcf -o test -g hg38 -q 20 -F pdf
 ```
 
 # Output
